@@ -1,0 +1,81 @@
+*{
+    margin: 0; 
+    padding: 0;
+}
+
+#quicklinks-1 li{
+    float: left;
+    display: inline;
+    list-style: none;
+    padding-right: 15px;
+
+    
+}
+
+#quicklinks-1 ul{
+    margin-left: 65rem;
+    padding-bottom: 1rem;
+}
+
+#quicklinks-1 a{
+    text-decoration: none;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.logo{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 1rem;
+}
+
+.logo h3{
+    padding-top: 20px;
+}
+
+#quicklinks-2 li{
+    float: left;
+    display: inline;
+    list-style: none;
+    padding-right: 10px;
+}
+
+#quicklinks-2 ul{
+    padding-top: 2rem;
+    padding-left: 60rem;
+}
+
+#quicklinks-2 a{
+    text-decoration: none;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+}
+.create{
+    background: url('./home.jpeg');
+    height: 100px;
+    width: 400px;
+    color: white;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+button{
+    padding-left: 10rem;
+    float: right;
+    
+}
+
+.pic-1{
+    float: right;
+    padding-right: 50px;
+}
+
+.pic-2{
+    float: right;
+    padding-right: 150px;
+
+}
+
+
