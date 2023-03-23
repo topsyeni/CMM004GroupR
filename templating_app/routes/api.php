@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,18 +16,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::group([
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//Route::group(['middleware' => ['cors', 'json.response']], function () {
+    Route::group([
 
-    'middleware' => 'api',
-    'prefix' => 'auth'
+        'middleware' => 'api',
+        'prefix' => 'auth'
 
-], function ($router) {
-    Route::post('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('/refresh', [AuthController::class, 'refresh'])->name('refresh');
-    Route::post('/me', [AuthController::class, 'me'])->name('me');
-});
+    ], function () {
+        Route::post('/register', [AuthController::class, 'register'])->name('register');
+        Route::post('/login', [AuthController::class, 'login'])->name('login');
+        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+        Route::get('/refresh', [AuthController::class, 'refresh'])->name('refresh');
+        Route::get('/me', [AuthController::class, 'me']);
+    });
+    Route::get('/get-customers', [UsersController::class, 'getUsers']);
+    Route::post('/add-customers', [UsersController::class, 'createUser']);
+    Route::patch('/update-customers/{id}', [UsersController::class, 'updateUser']);
+    Route::delete('/delete-customers/{id}', [UsersController::class, 'deleteUser']);
+//});
+

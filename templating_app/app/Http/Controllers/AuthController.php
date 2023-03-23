@@ -29,17 +29,23 @@ class AuthController extends Controller
     public function register() {
         $validator = Validator::make(request()->all(), [
             'name' => 'required',
+            'company_name' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:8',
         ]);
 
         if($validator->fails()){
-            return response()->json($validator->errors()->toJson(), 400);
+            return response()->json([
+                'code'=> '400',
+                'status'=> 'Validation failed',
+                'errors' => $validator->errors()
+            ], 400);
         }
 
         $user = new User;
         $user->name = request()->name;
         $user->email = request()->email;
+        $user->company_name = request()->company_name;
         $user->role = "admin";
         $user->password = bcrypt(request()->password);
         $user->save();
