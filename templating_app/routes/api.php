@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +33,13 @@ use Illuminate\Support\Facades\Route;
         Route::get('/refresh', [AuthController::class, 'refresh'])->name('refresh');
         Route::get('/me', [AuthController::class, 'me']);
     });
-    Route::get('/get-customers', [UsersController::class, 'getUsers']);
-    Route::post('/add-customers', [UsersController::class, 'createUser']);
-    Route::patch('/update-customers/{id}', [UsersController::class, 'updateUser']);
-    Route::delete('/delete-customers/{id}', [UsersController::class, 'deleteUser']);
+    Route::get('/customers', [UsersController::class, 'getUsers']);
+    Route::post('/customers', [UsersController::class, 'createUser']);
+    Route::patch('/customers/{id}', [UsersController::class, 'updateUser']);
+    Route::delete('/customers/{id}', [UsersController::class, 'deleteUser']);
+    Route::get('/templates', [TemplateController::class, 'getTemplate']);
+    Route::post('/templates', [TemplateController::class, 'createTemplate']);
+    Route::patch('/templates/{id}', [TemplateController::class, 'updateTemplate']);
+    Route::delete('/templates/{id}', [TemplateController::class, 'deleteTemplate']);
 //});
 
