@@ -10,6 +10,6 @@ class Questions extends Model
     use HasFactory;
 
     public function template(){
-        return $this->belongsTo("Questions");
+        return $this->belongsTo(Template::class, "template_id");
     }
 }

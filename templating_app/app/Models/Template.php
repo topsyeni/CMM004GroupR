@@ -10,6 +10,6 @@ class Template extends Model
     use HasFactory;
 
     public function questions(){
-        return $this->hasMany("Questions");
+        return $this->hasMany(Questions::class, 'template_id');
     }
 }

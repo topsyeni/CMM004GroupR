@@ -37,9 +37,10 @@ use Illuminate\Support\Facades\Route;
     Route::post('/customers', [UsersController::class, 'createUser']);
     Route::patch('/customers/{id}', [UsersController::class, 'updateUser']);
     Route::delete('/customers/{id}', [UsersController::class, 'deleteUser']);
-    Route::get('/templates', [TemplateController::class, 'getTemplate']);
+    Route::get('/templates', [TemplateController::class, 'getTemplates']);
     Route::post('/templates', [TemplateController::class, 'createTemplate']);
     Route::patch('/templates/{id}', [TemplateController::class, 'updateTemplate']);
+    Route::get('/templates/{id}', [TemplateController::class, 'getTemplate']);
     Route::delete('/templates/{id}', [TemplateController::class, 'deleteTemplate']);
+    Route::patch('/templates/questions/{id}', [TemplateController::class, 'updateQuestion']);
 //});
-
